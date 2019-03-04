@@ -1,0 +1,17 @@
+kind: Config
+apiVersion: kind.sigs.k8s.io/v1alpha2
+nodes:
+# the control plane node config
+- role: control-plane
+  # patch the generated kubeadm config with some extra settings
+  kubeadmConfigPatches:
+  - |
+    apiVersion: kubeadm.k8s.io/v1beta1
+    kind: ClusterConfiguration
+    metadata:
+      name: config
+    apiServer:
+      extraArgs:
+        # Don't forget quotes on the values
+        insecure-bind-address: "0.0.0.0"
+        insecure-port: "8080"
