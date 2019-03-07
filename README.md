@@ -6,6 +6,8 @@ Each cluster has a single vulnerability which can be exploited.
 
  - insecure-port.yaml - This has the insecure port enabled on the API server.
  - etcd.yaml - This has client authentication disabled on the ETCD server.
+ - unauthenticated-rw-kubelet.yaml - This has the Read/Write Kubelet port (10250/TCP) available without authentication.
+ - ro-kubelet.yaml - This has the Read-Only kubelet port (10255/TCP) available without authentication.
 
 After installing kind each test cluster can be brought up using a command like this
 
